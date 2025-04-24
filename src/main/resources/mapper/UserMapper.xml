@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.batch.mapper.UserMapper">
+
+    <select id="findEligibleUsers" resultType="User"> 
+        SELECT * FROM users 
+        WHERE 
+            is_active = true 
+            AND (last_notified_at IS NULL OR last_notified_at <![CDATA[<]]> NOW() - INTERVAL 1 DAY)
+    </select>
+
+    <update id="updateLastNotified"> 
+        UPDATE users SET last_notified_at = NOW() WHERE id = #{id} 
+    </update>
+
+</mapper>
