@@ -12,14 +12,20 @@ spring:
             enabled: false
 
     mail:
-        host: smtp.example.com
+        host: smtp.gmail.com
         port: 587
-        username: your-email@example.com
+        username: cheogn97@gmail.com
         password: your-password
         properties:
-            mail.smtp.auth: true
-            mail.smtp.starttls.enable: true
-            
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enabled: true
+                        required: true
+    output:
+        ansi:
+            enabled: always
 mybatis:
     mapper-locations: classpath:mapper/*.xml
     type-aliases-package: com.example.batch.domain

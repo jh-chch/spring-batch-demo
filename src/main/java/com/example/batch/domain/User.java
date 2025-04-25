@@ -9,7 +9,7 @@ public class User {
     private Boolean isActive;
     private LocalDateTime lastNotifiedAt;
     private LocalDateTime createdAt;
-    
+
     public User() {
     }
 
@@ -45,5 +45,11 @@ public class User {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", email=" + email + ", isActive=" + isActive + ", lastNotifiedAt="
+                + lastNotifiedAt + ", createdAt=" + createdAt + "]";
     }
 }
